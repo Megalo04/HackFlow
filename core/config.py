@@ -16,7 +16,7 @@ LOGS_DIR = os.path.join(ROOT_DIR, "logs")
 PACKAGE_MANAGERS = {
     "termux": "pkg",
     "ubuntu": "apt-get",
-    "parrot": "apt-get",
+    "kali": "apt-get",
 }
 
 # Lista base de dependencias comunes a instalar en cada entorno
