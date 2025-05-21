@@ -35,6 +35,19 @@ python hackflow.py
 ```
 Sigue el menú para elegir las acciones que deseas realizar.
 
+## 🐳 Docker (Ubuntu)
+
+Construir imagen:
+
+```bash
+docker build -f Dockerfile.ubuntu -t hackflow-ubuntu .
+```
+
+Ejecutar contenedor:
+```bash
+docker run -it --rm hackflow-ubuntu
+```
+
 Advertencia legal
 HackFlow es una herramienta creada con fines educativos y de investigación.
 El usuario es responsable de utilizarla sólo en sistemas con autorización explícita para pruebas de seguridad.

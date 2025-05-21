@@ -1,0 +1,27 @@
+FROM kalilinux/kali-rolling:latest
+
+RUN echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" > /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-venv \
+    python3-pip \
+    git \
+    curl \
+    nano \
+    nmap \
+    netcat-openbsd \
+    figlet \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+COPY . /opt/hackflow
+WORKDIR /opt/hackflow
+
+# Crear entorno virtual y usarlo para instalar deps
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Comando por defecto: abre una terminal bash interactiva
+CMD ["bash"]
